@@ -1,5 +1,6 @@
 package com.blueraven.envenhancements.eventhandler;
 
+import com.blueraven.envenhancements.ConfigurationEE;
 import com.blueraven.envenhancements.entity.EntityLightningBugFX;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -21,35 +22,38 @@ public class LightningBugEvent
     @SubscribeEvent
     public void playerTick(TickEvent.PlayerTickEvent e)
     {
-        if (e.side == Side.CLIENT)  //Makes sure it's on client side only. Would be unnecessary to spawn server-side & could crash game
-        {
-            Random rand = new Random();
-
-            EntityPlayer player = e.player;
-            World theWorld = player.worldObj; //New worldObj
-
-            if (this.checkNight(theWorld, (int) player.posX, (int) player.posY, (int) player.posZ, e))    //Check if night
+        if (ConfigurationEE.canSpawnLB)
+        {   //Make sure config allows spawning
+            if (e.side == Side.CLIENT)  //Makes sure it's on client side only. Would be unnecessary to spawn server-side & could crash game
             {
-                if (timeBeforeLightningBug != 0)
+                Random rand = new Random();
+
+                EntityPlayer player = e.player;
+                World theWorld = player.worldObj; //New worldObj
+
+                if (this.checkNight(theWorld, (int) player.posX, (int) player.posY, (int) player.posZ, e))    //Check if night
                 {
-                    --timeBeforeLightningBug;   //Count down the time before a lightning bug can spawn.
-                }
+                    if (timeBeforeLightningBug != 0)
+                    {
+                        --timeBeforeLightningBug;   //Count down the time before a lightning bug can spawn.
+                    }
 
-                int x = (int) player.posX + rand.nextInt(75) - rand.nextInt(75); //Locations (xyz coords) for lightiningbugs to spawn
-                int y = (int) player.posY + rand.nextInt(25) - rand.nextInt(25);
-                int z = (int) player.posZ + rand.nextInt(75) - rand.nextInt(75);
+                    int x = (int) player.posX + rand.nextInt(ConfigurationEE.spawnRangeLBX) - rand.nextInt(ConfigurationEE.spawnRangeLBX); //Locations (xyz coords) for lightiningbugs to spawn
+                    int y = (int) player.posY + rand.nextInt(ConfigurationEE.spawnRangeLBY) - rand.nextInt(ConfigurationEE.spawnRangeLBY);
+                    int z = (int) player.posZ + rand.nextInt(ConfigurationEE.spawnRangeLBZ) - rand.nextInt(ConfigurationEE.spawnRangeLBZ);
 
-                boolean canSpawnGrass = (theWorld.getBlock(x, y - 1, z) == Blocks.grass || theWorld.getBlock(x, y - 2, z) == Blocks.grass || theWorld.getBlock(x, y - 3, z) == Blocks.grass || theWorld.getBlock(x, y - 4, z) == Blocks.grass);
-                boolean canSpawnLeaves = ((theWorld.getBlock(x, y - 1, z) == Blocks.leaves || theWorld.getBlock(x, y - 2, z) == Blocks.leaves || theWorld.getBlock(x, y - 3, z) == Blocks.leaves || theWorld.getBlock(x, y - 4, z) == Blocks.leaves));
-                boolean canSpawnLeaves2 = ((theWorld.getBlock(x, y - 1, z) == Blocks.leaves2 || theWorld.getBlock(x, y - 2, z) == Blocks.leaves2 || theWorld.getBlock(x, y - 3, z) == Blocks.leaves2 || theWorld.getBlock(x, y - 4, z) == Blocks.leaves2));
-                int i = rand.nextInt(3);
+                    boolean canSpawnGrass = (theWorld.getBlock(x, y - 1, z) == Blocks.grass || theWorld.getBlock(x, y - 2, z) == Blocks.grass || theWorld.getBlock(x, y - 3, z) == Blocks.grass || theWorld.getBlock(x, y - 4, z) == Blocks.grass);
+                    boolean canSpawnLeaves = ((theWorld.getBlock(x, y - 1, z) == Blocks.leaves || theWorld.getBlock(x, y - 2, z) == Blocks.leaves || theWorld.getBlock(x, y - 3, z) == Blocks.leaves || theWorld.getBlock(x, y - 4, z) == Blocks.leaves));
+                    boolean canSpawnLeaves2 = ((theWorld.getBlock(x, y - 1, z) == Blocks.leaves2 || theWorld.getBlock(x, y - 2, z) == Blocks.leaves2 || theWorld.getBlock(x, y - 3, z) == Blocks.leaves2 || theWorld.getBlock(x, y - 4, z) == Blocks.leaves2));
+                    int i = rand.nextInt(ConfigurationEE.spawnRateLB);
 
-                if (i == 1 && timeBeforeLightningBug == 0 && theWorld.isAirBlock(x, y, z) && (canSpawnGrass || canSpawnLeaves || canSpawnLeaves2))    //Checks a lot of things to make sure it can spawn
-                {
-                    System.out.println("Spawned lightningbug");
-                    Minecraft mc = Minecraft.getMinecraft();
-                    mc.effectRenderer.addEffect(new EntityLightningBugFX(theWorld, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D));
-                    timeBeforeLightningBug = defaultValue;  //Sets to default value
+                    if (i == 1 && timeBeforeLightningBug == 0 && theWorld.isAirBlock(x, y, z) && (canSpawnGrass || canSpawnLeaves || canSpawnLeaves2))    //Checks a lot of things to make sure it can spawn
+                    {
+                        System.out.println("Spawned lightningbug");
+                        Minecraft mc = Minecraft.getMinecraft();
+                        mc.effectRenderer.addEffect(new EntityLightningBugFX(theWorld, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D));
+                        timeBeforeLightningBug = defaultValue;  //Sets to default value
+                    }
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.blueraven.envenhancements.eventhandler;
 
+import com.blueraven.envenhancements.ConfigurationEE;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -15,26 +16,29 @@ public class BlockCrumblingEvent
     @SubscribeEvent
     public void playerTick(TickEvent.PlayerTickEvent e)
     {
-        if (e.side == Side.CLIENT)
+        if (ConfigurationEE.canSpawnBC)
         {
-            EntityPlayer player = e.player;
-            World theWorld = player.worldObj; //New worldObj
+            if (e.side == Side.CLIENT)
+            {
+                EntityPlayer player = e.player;
+                World theWorld = player.worldObj; //New worldObj
 
-            Random rand = new Random();
+                Random rand = new Random();
 
-            checkAndSpawn(theWorld, player, rand);
+                checkAndSpawn(theWorld, player, rand);
+            }
         }
     }
 
     public void checkAndSpawn(World theWorld, EntityPlayer player, Random rand)
     {
-        int x = (int) player.posX + rand.nextInt(50) - rand.nextInt(50);
-        int y = (int) player.posY + rand.nextInt(25) - rand.nextInt(25);
-        int z = (int) player.posZ + rand.nextInt(50) - rand.nextInt(50);
+        int x = (int) player.posX + rand.nextInt(ConfigurationEE.spawnRangeBCX) - rand.nextInt(ConfigurationEE.spawnRangeBCX);
+        int y = (int) player.posY + rand.nextInt(ConfigurationEE.spawnRangeBCY) - rand.nextInt(ConfigurationEE.spawnRangeBCY);
+        int z = (int) player.posZ + rand.nextInt(ConfigurationEE.spawnRangeBCZ) - rand.nextInt(ConfigurationEE.spawnRangeBCZ);
 
         if (theWorld.isAirBlock(x, y - 1, z) && theWorld.getBlock(x, y, z).getMaterial() == Material.rock && theWorld.getBlock(x, y, z) != Blocks.bedrock)
         {
-            int i = rand.nextInt(2);
+            int i = rand.nextInt(ConfigurationEE.spawnRateBC);
             if (i == 1)
             {
                 for (int j = 0; j < 10; j++)

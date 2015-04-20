@@ -1,27 +1,33 @@
-[11:30:25] [main/INFO]: Setting user: Player19
-[11:30:26] [Client thread/INFO]: LWJGL Version: 2.9.1
-[11:30:32] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Environment Enhancements
-[11:30:33] [Sound Library Loader/INFO]: Sound engine started
-[11:30:34] [Client thread/INFO]: Created: 1024x512 textures/blocks-atlas
-[11:30:34] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[11:30:34] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Environment Enhancements
-[11:30:34] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[11:30:35] [Client thread/INFO]: Created: 1024x512 textures/blocks-atlas
-[11:30:36] [Sound Library Loader/INFO]: Sound engine started
-[11:30:53] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
-[11:30:53] [Server thread/INFO]: Generating keypair
-[11:30:53] [Server thread/INFO]: Preparing start region for level 0
-[11:30:54] [Server thread/INFO]: Changing view distance to 16, from 10
-[11:30:54] [Server thread/INFO]: Player19[local:E:af812e5b] logged in with entity id 228 at (-207.98794320264022, 4.0, -184.5274504217851)
-[11:30:54] [Server thread/INFO]: Player19 joined the game
-[11:31:17] [Server thread/INFO]: Player19 has just earned the achievement [Taking Inventory]
-[11:31:17] [Client thread/INFO]: [CHAT] Player19 has just earned the achievement [Taking Inventory]
-[11:32:35] [Client thread/INFO]: Stopping!
-[11:32:35] [Server thread/INFO]: Stopping server
-[11:32:35] [Server thread/INFO]: Saving players
-[11:32:35] [Server thread/INFO]: Saving worlds
-[11:32:35] [Server thread/INFO]: Saving chunks for level 'Testing world'/Overworld
-[11:32:35] [Server thread/INFO]: Saving chunks for level 'Testing world'/Nether
-[11:32:35] [Server thread/INFO]: Saving chunks for level 'Testing world'/The End
-[11:32:35] [Client Shutdown Thread/INFO]: Stopping server
-[11:32:35] [Client Shutdown Thread/INFO]: Saving players
+[13:14:11] [main/INFO]: Setting user: Player513
+[13:14:13] [Client thread/INFO]: LWJGL Version: 2.9.1
+[13:14:19] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Environment Enhancements
+[13:14:20] [Sound Library Loader/INFO]: Sound engine started
+[13:14:21] [Client thread/INFO]: Created: 1024x512 textures/blocks-atlas
+[13:14:21] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[13:14:22] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Environment Enhancements
+[13:14:22] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[13:14:22] [Client thread/INFO]: Created: 1024x512 textures/blocks-atlas
+[13:14:23] [Sound Library Loader/INFO]: Sound engine started
+[13:14:33] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[13:14:33] [Server thread/INFO]: Generating keypair
+[13:14:34] [Server thread/INFO]: Preparing start region for level 0
+[13:14:35] [Server thread/INFO]: Changing view distance to 16, from 10
+[13:14:35] [Server thread/INFO]: Player513[local:E:a7fb889d] logged in with entity id 227 at (-222.48537622069827, 4.624135341279557, -201.79018240342089)
+[13:14:35] [Server thread/INFO]: Player513 joined the game
+[13:14:38] [Server thread/INFO]: Saving and pausing game...
+[13:14:38] [Server thread/INFO]: Saving chunks for level 'Testing world'/Overworld
+[13:14:38] [Server thread/INFO]: Saving chunks for level 'Testing world'/Nether
+[13:14:38] [Server thread/INFO]: Saving chunks for level 'Testing world'/The End
+[13:15:05] [Server thread/INFO]: Player513 has just earned the achievement [Taking Inventory]
+[13:15:05] [Client thread/INFO]: [CHAT] Player513 has just earned the achievement [Taking Inventory]
+[13:18:01] [Server thread/INFO]: Saving and pausing game...
+[13:18:01] [Server thread/INFO]: Saving chunks for level 'Testing world'/Overworld
+[13:18:02] [Server thread/INFO]: Saving chunks for level 'Testing world'/Nether
+[13:18:02] [Server thread/INFO]: Saving chunks for level 'Testing world'/The End
+[13:18:02] [Server thread/INFO]: Stopping server
+[13:18:02] [Server thread/INFO]: Saving players
+[13:18:02] [Server thread/INFO]: Saving worlds
+[13:18:02] [Server thread/INFO]: Saving chunks for level 'Testing world'/Overworld
+[13:18:02] [Server thread/INFO]: Saving chunks for level 'Testing world'/Nether
+[13:18:02] [Server thread/INFO]: Saving chunks for level 'Testing world'/The End
+[13:19:12] [Client thread/INFO]: Stopping!
