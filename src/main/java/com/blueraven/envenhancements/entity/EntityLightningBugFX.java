@@ -19,7 +19,7 @@ public class EntityLightningBugFX extends EntityFX
         this.motionY = this.motionY * 0.009999999776482582D + velY;
         this.motionZ = this.motionZ * 0.009999999776482582D + velZ;
         this.particleRed = this.particleGreen = this.particleBlue = 1.0F;
-        this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D)) + 8;
+        this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D)) + 32;
         this.noClip = true;
     }
 

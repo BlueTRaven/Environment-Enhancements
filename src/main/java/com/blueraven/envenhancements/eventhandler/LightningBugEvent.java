@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class LightningBugEvent
 {
-    public int defaultValue = 5;  //Default value for "timebeforelightningbug"
+    public int defaultValue = 0;  //Default value for "timebeforelightningbug"
     public int timeBeforeLightningBug = defaultValue;
 
     @SubscribeEvent
@@ -48,8 +48,7 @@ public class LightningBugEvent
                 {
                     System.out.println("Spawned lightningbug");
                     Minecraft mc = Minecraft.getMinecraft();
-                    if (e.side == Side.CLIENT)
-                        mc.effectRenderer.addEffect(new EntityLightningBugFX(theWorld, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D));
+                    mc.effectRenderer.addEffect(new EntityLightningBugFX(theWorld, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D));
                     timeBeforeLightningBug = defaultValue;  //Sets to default value
                 }
             }
