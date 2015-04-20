@@ -21,7 +21,6 @@ public class LightningBugEvent
     @SubscribeEvent
     public void playerTick(TickEvent.PlayerTickEvent e)
     {
-
         if (e.side == Side.CLIENT)  //Makes sure it's on client side only. Would be unnecessary to spawn server-side & could crash game
         {
             Random rand = new Random();
@@ -49,7 +48,8 @@ public class LightningBugEvent
                 {
                     System.out.println("Spawned lightningbug");
                     Minecraft mc = Minecraft.getMinecraft();
-                    mc.effectRenderer.addEffect(new EntityLightningBugFX(theWorld, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D));
+                    if (e.side == Side.CLIENT)
+                        mc.effectRenderer.addEffect(new EntityLightningBugFX(theWorld, x + rand.nextFloat(), y + rand.nextFloat(), z + rand.nextFloat(), 0.0D, 0.0D, 0.0D));
                     timeBeforeLightningBug = defaultValue;  //Sets to default value
                 }
             }
