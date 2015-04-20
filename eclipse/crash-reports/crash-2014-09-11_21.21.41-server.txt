@@ -1,0 +1,51 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 9/11/14 9:21 PM
+Description: Exception in server tick loop
+
+java.lang.NoClassDefFoundError: net/minecraft/client/particle/EntityFX
+	at com.blueraven.envenhancements.init.ModBlocks.<clinit>(ModBlocks.java:13)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:270)
+	at cpw.mods.fml.common.registry.ObjectHolderRegistry.scanTarget(ObjectHolderRegistry.java:70)
+	at cpw.mods.fml.common.registry.ObjectHolderRegistry.findObjectHolders(ObjectHolderRegistry.java:39)
+	at cpw.mods.fml.common.Loader.preinitializeMods(Loader.java:507)
+	at cpw.mods.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:88)
+	at cpw.mods.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:313)
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:120)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:455)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:762)
+Caused by: java.lang.ClassNotFoundException: net.minecraft.client.particle.EntityFX
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:188)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	... 11 more
+Caused by: java.lang.RuntimeException: Attempted to load class net/minecraft/client/particle/EntityFX for invalid side SERVER
+	at cpw.mods.fml.common.asm.transformers.SideTransformer.transform(SideTransformer.java:50)
+	at net.minecraft.launchwrapper.LaunchClassLoader.runTransformers(LaunchClassLoader.java:276)
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:174)
+	... 13 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.7.0_65, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 60225496 bytes (57 MB) / 129499136 bytes (123 MB) up to 2108424192 bytes (2010 MB)
+	JVM Flags: 1 total; -Xincgc
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.05 FML v7.10.18.1180 Minecraft Forge 10.13.0.1180 4 mods loaded, 4 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed
+	FML{7.10.18.1180} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.0.1180.jar) Unloaded->Constructed
+	Forge{10.13.0.1180} [Minecraft Forge] (forgeSrc-1.7.10-10.13.0.1180.jar) Unloaded->Constructed
+	MagicMod{1.7.10:1.0} [MagicMod] (MagicMod) Unloaded->Constructed
+	Profiler Position: N/A (disabled)
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)
